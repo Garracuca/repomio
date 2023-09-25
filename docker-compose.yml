@@ -26,9 +26,9 @@ services:
       - MYSQL_PASSWORD=secret
     networks:
       - backend
-  ejercicios:
+  ejerciciosbueno:
     build: ./dockerfiles/introduccionphp
-    container_name: ejercicios
+    container_name: ejerciciosbueno
     hostname: ejercicios
     volumes:
       - ./data/ejerciciosphp:/var/www/html
