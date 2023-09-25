@@ -40,7 +40,6 @@ services:
     networks:
       - frontend
       - backend
-
   web2:
     image: php:8.2-apache
     container_name: web2
