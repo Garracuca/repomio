@@ -26,16 +26,16 @@ services:
       - MYSQL_PASSWORD=secret
     networks:
       - backend
-  ejerciciosbueno:
+  ejerciciosok:
     build: ./dockerfiles/introduccionphp
-    container_name: ejerciciosbueno
+    container_name: ejerciciosok
     hostname: ejercicios
     volumes:
       - ./data/ejerciciosphp:/var/www/html
     depends_on:
       - db
     environment:
-      - VIRTUAL_HOST=ejercicios.local,www.ejercicios.local
+      - VIRTUAL_HOST=ejerciciosok.local,www.ejerciciosok.local
     restart: always
     networks:
       - frontend
