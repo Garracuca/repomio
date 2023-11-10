@@ -28,7 +28,7 @@ services:
       - backend
   ejercicios:
     build: ./dockerfiles/introduccionphp
-    container_name: ejercicios
+    container_name: ejercicios_nok
     hostname: ejercicios
     volumes:
       - ./data/ejerciciosphp:/var/www/html
