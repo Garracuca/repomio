@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Controllers;
 
 class UserController{
 
@@ -9,6 +9,7 @@ echo "<br> construyendo USER controller";
 }
     public function index()
     {
+      require "../views/user/index.php";
       echo "<br> en el INDEX de user";
     }
 

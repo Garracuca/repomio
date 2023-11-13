@@ -1,4 +1,5 @@
 <?php
+
 require "../bdcon.php";
 
 //MWSQLI, PDO

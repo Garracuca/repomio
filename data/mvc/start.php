@@ -30,7 +30,7 @@
 //     echo "No se ha encontrado el método solictado";
 // }
 require "core/App.php";
-$app = new App(); // crea el enrutador o front controlLer
+$app = new Core\App(); // crea el enrutador o front controlLer
 
 
 

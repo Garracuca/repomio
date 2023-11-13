@@ -1,3 +1,4 @@
+
 <h1>Lista de usuarios</h1>
 <table>
     <?php foreach ($arrayusers as $user) { ?>
@@ -8,3 +9,4 @@
         </tr>
     <?php } ?>
 </table>
+

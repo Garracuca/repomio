@@ -1,4 +1,5 @@
 <?php
+namespace Core;
 //http:\\mvc.local/user/index
 //http:\\mvc.local/user/index.php?url=user/index
 // La peticion get :
@@ -38,14 +39,15 @@ class App
         }
      //fin construct
 //CREAR INSTANCIA DEL CONTROLADOR Y LLAMAR AL METODO
-$controllObject= new $controllerName;
-$controllObject->$method($arguments);
+$controllerName= "\\App\\Controllers\\". $controllerName; // USER NO DEJA CREAR INSTANCIAS DINÁMICAS
+$controllerObject= new $controllerName;// new  App\COntrollers\UserController
+
 
 if(method_exists($controllerObject,$method)){
-
+    $controllerObject->$method($arguments);
 }else{
     http_response_code(404);
-    echo "recurso no encontrado";
+    echo "función no encontrada";
    die ();
 }
 }
