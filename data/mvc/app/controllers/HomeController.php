@@ -9,6 +9,7 @@ echo "<br> construyendo HOME controller";
 }
     public function index()
     {
+      require "../views/user/index.php";
       echo "<br> en el INDEX de home";
     }
 
