@@ -9,7 +9,7 @@ echo "<br> construyendo  CLIENT controller";
 }
     public function index()
     {
-      require "../views/user/index.php";
+      require "../views/client/index.php";
       echo "<br> en el INDEX de client";
     }
 

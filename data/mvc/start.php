@@ -29,9 +29,16 @@
 //     http_response_code(404);
 //     echo "No se ha encontrado el método solictado";
 // }
+
+
 require "core/App.php";
 $app = new Core\App(); // crea el enrutador o front controlLer
 
 
+// require "core/Model.php";// probar el viejo model
 
+// require "app/models/User.php";
+// use \App\Models\User;
+// $user= new User();
+// $user->insert();
 
