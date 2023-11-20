@@ -7,6 +7,8 @@ use const PASSWORD;
 use PDO;
 use PDOException;
 // TAMBIÉN PODRÍA PONER UNA CONTRABARRA DELANTE EN VEZ DE USAR "USE"
+// esto ocurre por usar la última versión de PHP y las propiedades dinamicas
+#[\AllowDynamicProperties]
 class Model
 {
 

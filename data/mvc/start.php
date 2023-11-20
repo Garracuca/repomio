@@ -37,8 +37,13 @@ $app = new Core\App(); // crea el enrutador o front controlLer
 
 // require "core/Model.php";// probar el viejo model
 
-// require "app/models/User.php";
+// require "app/models/User.php"; // probar el user
 // use \App\Models\User;
 // $user= new User();
 // $user->insert();
+
+// require "app/controllers/UserController.php"; // probamos el userController directamente
+// use App\Controllers\UserController;
+// $usercontroller= new UserController();
+// $usercontroller->index();
 
