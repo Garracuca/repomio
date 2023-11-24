@@ -6,7 +6,6 @@ class UserController{
 
 
 function __construct(){
-echo "<br> construyendo USER controller";
 
 }
     public function index()
@@ -27,11 +26,47 @@ echo "<br> construyendo USER controller";
       require "../views/user/show.php";
       
     }
-     function create(){
-      require "../views/user/create.php";
-     }
+    public function create()
+    {
+        require '../views/user/create.php';
+    }
+    
+    public function store()
+    {
+        $user = new User();
+        $user->name = $_REQUEST['name'];
+        $user->surname = $_REQUEST['surname'];
+        $user->birthdate = $_REQUEST['birthdate'];
+        $user->email = $_REQUEST['email'];
+        $user->insert();
+        header("Location:/user");
+      }
 
+      public function edit($arguments)
+      {
+          $id = (int) $arguments[0];
+          $user = User::find($id);
+          require '../views/user/edit.php';
+      }
+      
+      public function update()
+      {
+          $id = $_REQUEST['id'];
+          $user = User::find($id);// datos del usuario que se mopdificaran
+          $user->name = $_REQUEST['name'];
+          $user->surname = $_REQUEST['surname'];
+          $user->birthdate = $_REQUEST['birthdate'];
+          $user->email = $_REQUEST['email'];
+          $user->save();// llamo un metodo del modelo
+          header('Location:/user');
+      }
 
-
+      public function delete($arguments)
+      {
+        $id = (int) $arguments[0];
+        $user = User::find($id);
+        $user->delete();
+        header('Location:/user');
+      }
 
 }

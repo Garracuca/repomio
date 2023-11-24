@@ -12,9 +12,13 @@ class User extends Model
 {
     public function __construct()
     {
-        $this->birthdate = DateTime::createFromFormat('Y-m-d', $this->birthdate);
-    }
 
+    // // Convierte el string a un objeto Date
+    // $this->birthdate= date_create($this->birthdate);// Convierte el string a un objeto Date
+   
+    //   $this->birthdate = DateTime::createFromFormat('Y-m-d', $this->birthdate);
+      
+    }
     //@return Array con los datos de los usuarios
     public static function all()
     {
@@ -30,7 +34,7 @@ class User extends Model
     //@param $id
     public static function find($id)
     {
-        echo "<br> Recupero un usuario";
+        // echo "<br> Recupero un usuario";
         // $dbh= Self::db();
         $dbh = User::db();
         $sql = "SELECT * from users where id= :id";
@@ -50,15 +54,32 @@ class User extends Model
     } //find
     public function save()
     {
-        echo "<br> actualizar un registro";
+        $db = User::db();
+        $stmt = $db->prepare('UPDATE users SET name = :name, surname = :surname, birthdate = :birthdate, email = :email WHERE id = :id');
+        $stmt->bindValue(':id', $this->id);
+        $stmt->bindValue(':name', $this->name);
+        $stmt->bindValue(':surname', $this->surname);
+        $stmt->bindValue(':birthdate', $this->birthdate);
+        $stmt->bindValue(':email', $this->email);
+        return $stmt->execute();
     }
     public function insert()
     {
-        echo "<br> creo un registro";
+        $db = User::db();
+        $stmt = $db->prepare('INSERT INTO users(name, surname, birthdate, email) VALUES(:name, :surname, :birthdate, :email)');
+        $stmt->bindValue(':name', $this->name);
+        $stmt->bindValue(':surname', $this->surname);
+        $stmt->bindValue(':email', $this->email);
+        $stmt->bindValue(':birthdate', $this->birthdate);
+        return $stmt->execute();
     }
 
+    
     public function delete()
-    {
-        echo "<br> borro un registro";
-    }
+{
+    $db = User::db();
+    $stmt = $db->prepare('DELETE FROM users WHERE id = :id');
+    $stmt->bindValue(':id', $this->id);
+    return $stmt->execute();
+}
 }

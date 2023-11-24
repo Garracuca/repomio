@@ -11,13 +11,14 @@
     <main role="main" class="container">
       <h1 class="mt-5">Listado general de la App</h1>
       <h1>Lista de usuarios</h1>
-
 <table class="table table-striped table-hover">
   <tr>
     <th>Nombre</th>
     <th>Apellidos</th>
     <th>Email</th>
     <th>F. nacimiento</th>
+    <th></th>
+    <th></th>
     <th></th>
   </tr>
 
@@ -30,11 +31,20 @@
     <td>
       <a href="/user/show/<?php echo $user->id ?>" class="btn btn-primary">Ver </a>
     </td>
+    <td>
+      <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Editar</a>
+    </td>
+    <td>
+      <a href="/user/delete/<?php echo $user->id ?>" class="btn btn-primary">Borrar</a>
+    </td>
     </tr>
   <?php } ?>
 </table>
     </main>
-
+    <td>
+      <a href="/user/create/" class="btn btn-primary">Crear nuevo usuario</a>
+    </td>
     <?php  require "../views/common/footer.php" ?>
 
     <?php require "../views/common/scripts.php" ?>
+  </body>
