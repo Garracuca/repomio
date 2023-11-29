@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   
@@ -27,7 +28,7 @@
     <td><?php echo $user->name ?></td>
     <td><?php echo $user->surname ?></td>
     <td><?php echo $user->email ?></td>
-    <td><?php echo $user->birthdate//->format('d-m-Y') ?></td>
+    <td><?php echo $user->birthdate->format('d-m-Y') ?></td>
     <td>
       <a href="/user/show/<?php echo $user->id ?>" class="btn btn-primary">Ver </a>
     </td>
@@ -35,7 +36,7 @@
       <a href="/user/edit/<?php echo $user->id ?>" class="btn btn-primary">Editar</a>
     </td>
     <td>
-      <a href="/user/delete/<?php echo $user->id ?>" class="btn btn-primary">Borrar</a>
+      <a href="/user/delete/<?php echo $user->id ?>" onclick="return confirm('Estas seguro que quieres borrar?')" class="btn btn-primary">Borrar</a>
     </td>
     </tr>
   <?php } ?>
@@ -48,3 +49,4 @@
 
     <?php require "../views/common/scripts.php" ?>
   </body>
+ 

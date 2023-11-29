@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers;
-require "../app/models/User.php";
+// require "../app/models/User.php";
 use App\Models\User;
 class UserController{
 
@@ -65,7 +65,7 @@ function __construct(){
       {
         $id = (int) $arguments[0];
         $user = User::find($id);
-        $user->delete();
+        $user->delete(); // metodo del  modelo
         header('Location:/user');
       }
 

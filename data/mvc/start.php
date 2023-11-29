@@ -30,8 +30,9 @@
 //     echo "No se ha encontrado el método solictado";
 // }
 
-
-require "core/App.php";
+//autoload de composer
+require 'vendor/autoload.php';
+// require "core/App.php";
 $app = new Core\App(); // crea el enrutador o front controlLer
 
 

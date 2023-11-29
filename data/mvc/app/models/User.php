@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-require "../core/Model.php";
+// require "../core/Model.php";
 
 use Core\Model;
 // get cwd
@@ -16,7 +16,7 @@ class User extends Model
     // // Convierte el string a un objeto Date
     // $this->birthdate= date_create($this->birthdate);// Convierte el string a un objeto Date
    
-    //   $this->birthdate = DateTime::createFromFormat('Y-m-d', $this->birthdate);
+       $this->birthdate = DateTime::createFromFormat('Y-m-d', $this->birthdate);
       
     }
     //@return Array con los datos de los usuarios
@@ -26,7 +26,8 @@ class User extends Model
         $sql = "SELECT * from users";
         $statement = $dbh->query($sql);
         $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
-        $users = $statement->fetchAll(PDO::FETCH_CLASS);
+        $users = $statement->fetchAll(PDO::FETCH_CLASS,User::class);
+        //$users = $statement->fetchAll(PDO::FETCH_CLASS,"App\\Models\User");
         return $users;
     }
 
